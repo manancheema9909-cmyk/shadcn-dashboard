@@ -13,9 +13,13 @@ import {
   Database,
   TrendingUp,
   ChartNoAxesColumn,
+  GitCompare,
+  Users,
+  SwatchBook,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
@@ -31,6 +35,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 import { Badge } from "@/components/ui/badge";
 const Hero = () => {
@@ -79,9 +93,9 @@ const Hero = () => {
       </div>
 
       <div className="grid grid-cols-[1fr_1fr_1fr] gap-4">
-        <Card className="col-span-3 sm:col-span-1 p-4   ">
-          <CardContent className=" grid grid-cols-2 gap-4">
-            <div className="flex gap-1 items-center ">
+        <Card className="col-span-3 sm:col-span-1 py-4">
+          <CardContent className=" grid grid-cols-2 gap-4 ">
+            <div className="flex gap-1 items-center  ">
               <Eye className="bg-stone-200 py-1 rounded-sm " size={20} />
               <span className="font-bold">Page Views</span>
             </div>
@@ -127,7 +141,7 @@ const Hero = () => {
           </Card>
         </div>
         <div className="col-span-3 sm:col-span-1  text-center">
-          <Card className="col-span-3 sm:col-span-1 p-4  ">
+          <Card className="col-span-3 sm:col-span-1 py-4  ">
             <CardContent className=" grid grid-cols-2 gap-4">
               <div className="flex gap-1 items-center ">
                 <TrendingUp
@@ -153,7 +167,7 @@ const Hero = () => {
           </Card>
         </div>
         <div className="col-span-3 sm:col-span-2  text-center">
-          <Card className="col-span-3 sm:col-span-1 p-4  ">
+          <Card className="col-span-3 sm:col-span-1 py-4  ">
             <CardContent className=" grid grid-cols-2 gap-4">
               <div className="flex gap-1 items-center ">
                 <ChartNoAxesColumn
@@ -175,31 +189,32 @@ const Hero = () => {
                     <span className="text-green-700">15.8%</span>
                     <MoveUpRight size={15} className="text-green-700" />
                   </Badge>
-                  <span className="text-xs">
-                    +<span className="font-bold text-stone-600">$</span>143.50
-                    <span className="ml-2 ">Increased </span>
+                  <span className="text-xs text-stone-500 ">
+                    +<span className="font-bold text-stone-500">$</span>143.50
+                    <span className="ml-2 text-stone-500 ">Increased </span>
                   </span>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
-        <div className="col-span-3 sm:col-span-1 text-center">
-          <Card className="col-span-3 sm:col-span-1 p-4  ">
-            <CardContent className=" grid grid-cols-2 gap-4">
-              <div className="flex gap-1 items-center ">
-                <ChartNoAxesColumn
-                  className="bg-stone-200 py-1 rounded-sm "
+        <div className="col-span-3 sm:col-span-1 text-center   ">
+          <Card className="col-span-3 sm:col-span-1 py-4  ">
+            <CardContent className=" grid grid-cols-2 gap-4   ">
+              <div className="flex items-center gap-1  ">
+                <Users
+                  className="shrink-0 bg-stone-200 py-1 rounded-sm"
                   size={20}
                 />
-                <span className="font-bold">Total Subscriber</span>
+                <span className="font-bold whitespace-nowrap">
+                  Total Subscriber
+                </span>
               </div>
+
               <div className="place-self-end">
-                <input
-                  type="week"
-                  defaultValue="2026-W01"
-                  className=" w-20 h-8 border border-stone-400 rounded px-1 py-1 text-stone-800 font-small "
-                />
+                <select class="border rounded-md py-0.5 px-4 text-sm w-22">
+                  <option value="">Weekly</option>
+                </select>
               </div>
               <div className="grid place-items-start gap-2 ">
                 <span className=" text-3xl">24,473</span>
@@ -211,9 +226,9 @@ const Hero = () => {
                     <span className="text-green-700">8.3%</span>
                     <MoveUpRight size={15} className="text-green-700" />
                   </Badge>
-                  <span className="text-xs">
+                  <span className="text-xs text-stone-600 ">
                     +749
-                    <span className="ml-2 ">Increased</span>
+                    <span className="ml-2 text-stone-500 ">Increased</span>
                   </span>
                 </div>
               </div>
@@ -221,11 +236,130 @@ const Hero = () => {
           </Card>
         </div>
 
-        <div className="col-span-3 sm:col-span-1 bg-stone-200 p-4 bg-gray-100 text-center">
-          Item 6
+        <div className="col-span-3 sm:col-span-1 text-center   ">
+          <Card className="col-span-3 sm:col-span-1 py-4  ">
+            <CardContent className=" grid grid-cols-2 gap-4   ">
+              <div className="flex items-center gap-1  ">
+                <SwatchBook
+                  className="shrink-0 bg-stone-200 py-1 rounded-sm"
+                  size={20}
+                />
+                <span className="font-bold whitespace-nowrap">
+                  Sales Distribution
+                </span>
+              </div>
+
+              <div className="place-self-end">
+                <select class="border rounded-md py-0.5 px-4 text-sm w-22">
+                  <option value="">Monthly</option>
+                </select>
+              </div>
+              <div className="   my-4 flex justify-evenly">
+                <div className="flex justify-evenly  text-xs gap-2 flex-nowrap ">
+                  <Separator orientation="vertical" className="h-4" />
+                  <div className=" flex flex-col  items-center ">
+                    <p className="">WebSite</p>
+                    <span className="flex gap-1 font-bold text-xl">
+                      $ <span className="text-xl">374.82</span>
+                    </span>
+                  </div>
+
+                  <Separator orientation="vertical" className="h-4" />
+                  <div className="flex flex-col items-center whitespace-nowrap">
+                    <p>Mobile App</p>
+                    <span className="flex gap-1 font-bold text-xl">
+                      $ <span className="text-xl">241.60</span>
+                    </span>
+                  </div>
+
+                  <Separator orientation="vertical" className="h-5" />
+                  <div className="flex flex-col items-center whitespace-nowrap">
+                    <p>Other</p>
+                    <span className="flex gap-1 font-bold text-xl ">
+                      $ <span className="text-xl">213.42</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
-        <div className="bg-stone-200 col-span-3 sm:col-span-2 p-4 bg-gray-100 text-center">
-          Item 7
+
+        <div className=" col-span-3 sm:col-span-2 text-center">
+          <Card className="">
+            <CardContent className=" ">
+              <div className="  flex items-center gap-2 p-4">
+                <GitCompare
+                  className="bg-stone-200 py-1 rounded-sm "
+                  size={20}
+                />
+
+                <span className="font-bold">List Of Integration</span>
+                <a href="#" className="text-sm text-blue-500 ml-auto">
+                  See all
+                </a>
+              </div>
+              <div className="">
+                <Table className="w-full  border border-gray-200">
+                  <TableHeader>
+                    <TableRow className="bg-gray-100">
+                      <TableHead>
+                        <div className="flex justify-center items-center">
+                          <input type="checkbox" />
+                        </div>
+                      </TableHead>
+                      <TableHead className="text-center">Application</TableHead>
+                      <TableHead className="text-center">Type</TableHead>
+                      <TableHead className="text-center">Rate</TableHead>
+                      <TableHead className="text-right">Profit</TableHead>
+                    </TableRow>
+                  </TableHeader>
+
+                  <TableBody>
+                    <TableRow className="hover:bg-gray-50">
+                      <TableCell>
+                        <div className="flex justify-center items-center">
+                          <input type="checkbox" />
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-center">Facebook</TableCell>
+                      <TableCell className="text-center">
+                        Social Media
+                      </TableCell>
+                      <TableCell className="text-center">75%</TableCell>
+                      <TableCell className="text-right">$1200</TableCell>
+                    </TableRow>
+
+                    <TableRow className="hover:bg-gray-50">
+                      <TableCell>
+                        <div className="flex justify-center items-center">
+                          <input type="checkbox" />
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-center">Candy Crush</TableCell>
+                      <TableCell className="text-center">Game</TableCell>
+                      <TableCell className="text-center">60%</TableCell>
+                      <TableCell className="text-right">$800</TableCell>
+                    </TableRow>
+
+                    <TableRow className="hover:bg-gray-50">
+                      <TableCell>
+                        <div className="flex justify-center items-center">
+                          <input type="checkbox" />
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-center">Instagram</TableCell>
+                      <TableCell className="text-center">
+                        Social Media
+                      </TableCell>
+                      <TableCell className="text-center">85%</TableCell>
+                      <TableCell className="text-right">$1500</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
