@@ -35,6 +35,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Table,
   TableBody,
@@ -45,6 +46,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Progress } from "@/components/ui/progress";
 
 import { Badge } from "@/components/ui/badge";
 const Hero = () => {
@@ -254,28 +256,47 @@ const Hero = () => {
                   <option value="">Monthly</option>
                 </select>
               </div>
-              <div className="   my-4 flex justify-evenly">
-                <div className="flex justify-evenly  text-xs gap-2 flex-nowrap ">
-                  <Separator orientation="vertical" className="h-4" />
-                  <div className=" flex flex-col  items-center ">
-                    <p className="">WebSite</p>
-                    <span className="flex gap-1 font-bold text-xl">
+              <div className=" my-4 flex gap-2">
+                <div className="  ">
+                  <div className=" flex items-center gap-2 ">
+                    <Separator
+                      orientation="vertical"
+                      className="h-3 bg-blue-700"
+                    />
+                    <p className="text-[10px]">WebSite</p>
+                  </div>
+                  <div className="">
+                    <span className="flex gap-1 ml-3 font-bold text-xl">
                       $ <span className="text-xl">374.82</span>
                     </span>
                   </div>
-
-                  <Separator orientation="vertical" className="h-4" />
-                  <div className="flex flex-col items-center whitespace-nowrap">
-                    <p>Mobile App</p>
-                    <span className="flex gap-1 font-bold text-xl">
+                </div>
+                <div className=" ">
+                  <div className=" flex items-center gap-2  ">
+                    <Separator
+                      orientation="vertical"
+                      className="h-3 bg-blue-700"
+                    />
+                    <p className="text-[10px] whitespace-nowrap">
+                      Mobile Application
+                    </p>
+                  </div>
+                  <div className="">
+                    <span className="flex gap-1 ml-3 font-bold text-xl">
                       $ <span className="text-xl">241.60</span>
                     </span>
                   </div>
-
-                  <Separator orientation="vertical" className="h-5" />
-                  <div className="flex flex-col items-center whitespace-nowrap">
-                    <p>Other</p>
-                    <span className="flex gap-1 font-bold text-xl ">
+                </div>
+                <div className="    ">
+                  <div className=" flex items-center gap-2 ">
+                    <Separator
+                      orientation="vertical"
+                      className="h-3 bg-blue-700"
+                    />
+                    <p className="text-[10px]">other</p>
+                  </div>
+                  <div className="">
+                    <span className="flex gap-1 ml-3 font-bold text-xl">
                       $ <span className="text-xl">213.42</span>
                     </span>
                   </div>
@@ -300,59 +321,103 @@ const Hero = () => {
                 </a>
               </div>
               <div className="">
-                <Table className="w-full  border border-gray-200">
+                <Table className="">
                   <TableHeader>
                     <TableRow className="bg-gray-100">
-                      <TableHead>
-                        <div className="flex justify-center items-center">
+                      <TableCell>
+                        <div className="flex items-center gap-4">
                           <input type="checkbox" />
+
+                          <span>Application</span>
                         </div>
-                      </TableHead>
-                      <TableHead className="text-center">Application</TableHead>
-                      <TableHead className="text-center">Type</TableHead>
-                      <TableHead className="text-center">Rate</TableHead>
-                      <TableHead className="text-right">Profit</TableHead>
+                      </TableCell>
+
+                      <TableCell className="text-center">Type</TableCell>
+                      <TableCell className="text-center ">Rate</TableCell>
+                      <TableCell className="text-right">Profit</TableCell>
                     </TableRow>
                   </TableHeader>
 
                   <TableBody>
                     <TableRow className="hover:bg-gray-50">
                       <TableCell>
-                        <div className="flex justify-center items-center">
+                        <div className="flex items-center gap-4">
                           <input type="checkbox" />
+                          <Avatar className="h-8 w-8">
+                            <AvatarImage
+                              className="object-cover"
+                              src="https://github.com/shadcn.png"
+                            />
+                            <AvatarFallback>FB</AvatarFallback>
+                          </Avatar>
+                          <span>Facebook</span>
                         </div>
                       </TableCell>
-                      <TableCell className="text-center">Facebook</TableCell>
+
                       <TableCell className="text-center">
                         Social Media
                       </TableCell>
-                      <TableCell className="text-center">75%</TableCell>
+                      <TableCell className="text-center justify-center  flex items-center gap-2">
+                        <Progress
+                          value={68}
+                          className="w-16 h-2 rounded-full [&>div]:bg-blue-600"
+                        />
+                        <span>68%</span>
+                      </TableCell>
                       <TableCell className="text-right">$1200</TableCell>
                     </TableRow>
 
                     <TableRow className="hover:bg-gray-50">
                       <TableCell>
-                        <div className="flex justify-center items-center">
+                        <div className="flex items-center gap-4">
                           <input type="checkbox" />
+                          <Avatar className="h-8 w-8">
+                            <AvatarImage
+                              className="object-cover"
+                              src="https://github.com/shadcn.png"
+                            />
+                            <AvatarFallback>CC</AvatarFallback>
+                          </Avatar>
+                          <span>Candy Crush</span>
                         </div>
                       </TableCell>
-                      <TableCell className="text-center">Candy Crush</TableCell>
+
                       <TableCell className="text-center">Game</TableCell>
-                      <TableCell className="text-center">60%</TableCell>
+                      <TableCell className="text-center justify-center  flex items-center gap-2">
+                        <Progress
+                          value={42}
+                          className="w-16 h-2  rounded-full [&>div]:bg-blue-600"
+                        />
+                        <span>42%</span>
+                      </TableCell>
                       <TableCell className="text-right">$800</TableCell>
                     </TableRow>
 
                     <TableRow className="hover:bg-gray-50">
                       <TableCell>
-                        <div className="flex justify-center items-center">
+                        <div className="flex items-center gap-4">
                           <input type="checkbox" />
+                          <Avatar className="h-8 w-8">
+                            <AvatarImage
+                              className="object-cover"
+                              src="https://github.com/shadcn.png"
+                            />
+                            <AvatarFallback>IG</AvatarFallback>
+                          </Avatar>
+                          <span>Instagram</span>
                         </div>
                       </TableCell>
-                      <TableCell className="text-center">Instagram</TableCell>
+
                       <TableCell className="text-center">
                         Social Media
                       </TableCell>
-                      <TableCell className="text-center">85%</TableCell>
+                      <TableCell className="text-center justify-center flex items-center gap-2">
+                        <Progress
+                          value={78}
+                          className="w-16 h-2  rounded-full [&>div]:bg-blue-600"
+                        />
+                        <span>78%</span>
+                      </TableCell>
                       <TableCell className="text-right">$1500</TableCell>
                     </TableRow>
                   </TableBody>
